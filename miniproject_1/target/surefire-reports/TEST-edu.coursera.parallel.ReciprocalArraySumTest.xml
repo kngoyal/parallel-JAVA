@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.coursera.parallel.ReciprocalArraySumTest" time="254.778" tests="4" errors="0" skipped="0" failures="4">
+<testsuite name="edu.coursera.parallel.ReciprocalArraySumTest" time="25.014" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="16+14"/>
@@ -40,7 +40,7 @@
     <property name="java.class.path" value="/opt/homebrew/Cellar/maven/3.6.3_1/libexec/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="16"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
     <property name="java.home" value="/opt/homebrew/Cellar/openjdk/15.0.2/libexec/openjdk.jdk/Contents/Home"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -56,156 +56,6 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="testParSimpleTwoMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="2.38">
-    <failure message="It was expected that the two-task parallel implementation would run at least 1.500000x faster, but it only achieved 0.027778x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the two-task parallel implementation would run at least 1.500000x faster, but it only achieved 0.027778x speedup
-	at junit.framework.Assert.fail(Assert.java:47)
-	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at edu.coursera.parallel.ReciprocalArraySumTest.testParSimpleTwoMillion(ReciprocalArraySumTest.java:120)
-</failure>
-    <system-out><![CDATA[ parArraySum completed in   41.441 milliseconds, with sum = 104672.52500 
- parArraySum completed in   60.801 milliseconds, with sum = 104672.52500 
- parArraySum completed in   32.057 milliseconds, with sum = 104672.52500 
- parArraySum completed in   12.619 milliseconds, with sum = 104672.52500 
- parArraySum completed in   46.714 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.212 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.462 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.474 milliseconds, with sum = 104672.52500 
- parArraySum completed in   12.551 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.028 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.408 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.065 milliseconds, with sum = 104672.52500 
- parArraySum completed in   45.013 milliseconds, with sum = 104672.52500 
- parArraySum completed in   53.680 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.909 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.806 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.200 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.838 milliseconds, with sum = 104672.52500 
- parArraySum completed in   10.960 milliseconds, with sum = 104672.52500 
- parArraySum completed in   13.644 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.455 milliseconds, with sum = 104672.52500 
- parArraySum completed in   51.701 milliseconds, with sum = 104672.52500 
- parArraySum completed in   10.991 milliseconds, with sum = 104672.52500 
- parArraySum completed in   18.307 milliseconds, with sum = 104672.52500 
- parArraySum completed in   10.992 milliseconds, with sum = 104672.52500 
- parArraySum completed in   57.279 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.602 milliseconds, with sum = 104672.52500 
- parArraySum completed in   46.240 milliseconds, with sum = 104672.52500 
- parArraySum completed in   51.083 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.754 milliseconds, with sum = 104672.52500 
- parArraySum completed in   12.505 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.494 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.776 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.396 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.748 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.630 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.445 milliseconds, with sum = 104672.52500 
- parArraySum completed in   31.547 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.443 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.788 milliseconds, with sum = 104672.52500 
- parArraySum completed in   56.170 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.418 milliseconds, with sum = 104672.52500 
- parArraySum completed in   23.885 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.376 milliseconds, with sum = 104672.52500 
- parArraySum completed in   42.759 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.086 milliseconds, with sum = 104672.52500 
- parArraySum completed in   10.920 milliseconds, with sum = 104672.52500 
- parArraySum completed in   17.965 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.686 milliseconds, with sum = 104672.52500 
- parArraySum completed in   36.578 milliseconds, with sum = 104672.52500 
- parArraySum completed in   10.963 milliseconds, with sum = 104672.52500 
- parArraySum completed in   55.691 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.333 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.015 milliseconds, with sum = 104672.52500 
- parArraySum completed in   29.388 milliseconds, with sum = 104672.52500 
- parArraySum completed in   53.887 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.435 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.362 milliseconds, with sum = 104672.52500 
- parArraySum completed in   11.040 milliseconds, with sum = 104672.52500 
- parArraySum completed in   23.152 milliseconds, with sum = 104672.52500 
- parArraySum completed in   54.519 milliseconds, with sum = 104672.52500 
-]]></system-out>
-  </testcase>
-  <testcase name="testParSimpleTwoHundredMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="224.547">
-    <failure message="It was expected that the two-task parallel implementation would run at least 1.500000x faster, but it only achieved 0.057548x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the two-task parallel implementation would run at least 1.500000x faster, but it only achieved 0.057548x speedup
-	at junit.framework.Assert.fail(Assert.java:47)
-	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at edu.coursera.parallel.ReciprocalArraySumTest.testParSimpleTwoHundredMillion(ReciprocalArraySumTest.java:131)
-</failure>
-    <system-out><![CDATA[ parArraySum completed in 2002.732 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 3290.389 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1443.518 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1505.028 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1165.099 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1586.174 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1657.537 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1858.352 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1595.965 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1697.658 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 2329.239 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1705.382 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1405.080 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1888.880 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1634.293 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 2563.911 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1297.648 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1581.097 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 6541.057 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 4534.452 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 6684.062 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5935.683 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 8435.242 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 7211.245 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 7136.479 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5978.738 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 7633.902 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 12789.354 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5023.835 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5759.986 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 6222.278 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5081.693 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1832.426 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 2795.040 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 3237.025 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 3290.140 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 3105.335 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1299.970 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1180.037 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1100.319 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1096.034 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 2021.457 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1548.504 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1101.311 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 2104.090 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1108.985 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1264.904 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1121.942 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1207.315 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1264.281 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 1594.598 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 2036.819 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 4702.288 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 4973.001 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5345.978 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5868.433 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 6098.330 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5439.758 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 3504.655 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5655.747 milliseconds, with sum = 10459940.21274 
- parArraySum completed in 5198.452 milliseconds, with sum = 10459940.21274 
-]]></system-out>
-  </testcase>
-  <testcase name="testParManyTaskTwoMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="0.257">
-    <failure message="It was expected that the many-task parallel implementation would run at least 4.800000x faster, but it only achieved 1.000000x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the many-task parallel implementation would run at least 4.800000x faster, but it only achieved 1.000000x speedup
-	at junit.framework.Assert.fail(Assert.java:47)
-	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at edu.coursera.parallel.ReciprocalArraySumTest.testParManyTaskTwoMillion(ReciprocalArraySumTest.java:143)
-</failure>
-  </testcase>
-  <testcase name="testParManyTaskTwoHundredMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="27.594">
-    <failure message="It was expected that the many-task parallel implementation would run at least 6.400000x faster, but it only achieved 0.989848x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the many-task parallel implementation would run at least 6.400000x faster, but it only achieved 0.989848x speedup
-	at junit.framework.Assert.fail(Assert.java:47)
-	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at edu.coursera.parallel.ReciprocalArraySumTest.testParManyTaskTwoHundredMillion(ReciprocalArraySumTest.java:155)
-</failure>
-  </testcase>
+  <testcase name="testParSimpleTwoMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="0.277"/>
+  <testcase name="testParSimpleTwoHundredMillion" classname="edu.coursera.parallel.ReciprocalArraySumTest" time="24.737"/>
 </testsuite>

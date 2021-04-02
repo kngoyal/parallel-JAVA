@@ -1,6 +1,7 @@
 package edu.coursera.parallel;
 
 import edu.rice.pcdp.PCDP;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -101,6 +102,7 @@ public final class ReciprocalArraySum {
      * created to perform reciprocal array sum in parallel.
      */
     private static class ReciprocalArraySumTask extends RecursiveAction {
+
         /**
          * Starting index for traversal done by this task.
          */
@@ -116,7 +118,7 @@ public final class ReciprocalArraySum {
         /**
          * Intermediate value produced by this task.
          */
-        private double value;
+        private double value = 0;
 
         /**
          * Constructor.
@@ -142,7 +144,20 @@ public final class ReciprocalArraySum {
 
         @Override
         protected void compute() {
-            // TODO
+            int SEQUENTIAL_THRESHOLD = 100;
+            if (endIndexExclusive-startIndexInclusive<SEQUENTIAL_THRESHOLD){
+                for (int i=startIndexInclusive; i < endIndexExclusive; i++){
+                    value += 1/input[i];
+                }
+            } else {
+                int middleIndex = (startIndexInclusive+endIndexExclusive)/2;
+                ReciprocalArraySumTask left = new ReciprocalArraySumTask(startIndexInclusive, middleIndex, input);
+                ReciprocalArraySumTask right = new ReciprocalArraySumTask(middleIndex, endIndexExclusive, input);
+                left.fork();
+                right.compute();
+                left.join();
+                value = left.getValue() + right.getValue();
+            }
         }
     }
 
@@ -155,24 +170,25 @@ public final class ReciprocalArraySum {
      * @param input Input array
      * @return The sum of the reciprocals of the array input
      */
-    protected static double parArraySum(double[] input) {
+    protected static double parArraySumAF(double[] input) {
         assert input.length % 2 == 0;
         long startTime = System.nanoTime();
         AtomicReference<Double> sum1 = new AtomicReference<>((double) 0);
         AtomicReference<Double> sum2 = new AtomicReference<>((double) 0);
 
-        // Compute sum of reciprocals of lower half of array elements
+        // Compute sum of reciprocals of lower half and upper half in parallel
+        // using async and finish
         PCDP.finish(() -> {
             PCDP.async(() -> {
             for (int i = 0; i < input.length/2; i++) {
                 int finalI = i;
-                sum1.updateAndGet(v -> new Double((double) (v + 1 / input[finalI])));
+                sum1.updateAndGet(v -> (double) (v + 1 / input[finalI]));
             }});
 
             // Compute sum of reciprocals of upper half of array elements
             for (int i = input.length/2; i < input.length; i++) {
                 int finalI = i;
-                sum2.updateAndGet(v -> new Double((double) (v + 1 / input[finalI])));
+                sum2.updateAndGet(v -> (double) (v + 1 / input[finalI]));
         }});
 
         // Combine sum1 and sum2
@@ -180,6 +196,18 @@ public final class ReciprocalArraySum {
         long timeinNanos = System.nanoTime() - startTime;
         printResults("parArraySum", timeinNanos, sum);
         return sum;
+    }
+
+    protected static double parArraySum(double[] input) {
+        assert input.length % 2 == 0;
+//        long startTime = System.nanoTime();
+
+        ReciprocalArraySumTask t = new ReciprocalArraySumTask(0, input.length, input);
+        ForkJoinPool pool = new ForkJoinPool(2);
+        pool.invoke(t);
+//        long timeinNanos = System.nanoTime() - startTime;
+//        printResults("parArraySum", timeinNanos, t.getValue());
+        return t.getValue();
     }
 
     /**
