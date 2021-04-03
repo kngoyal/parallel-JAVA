@@ -134,7 +134,7 @@ public class ReciprocalArraySumTest extends TestCase {
     /**
      * Test that the many-task parallel implementation properly computes the results for a million-element array.
      */
-    public void _testParManyTaskTwoMillion() {
+    public void testParManyTaskTwoMillion() {
         final int ncores = getNCores();
         final double minimalExpectedSpeedup = (double)ncores * 0.6;
         final double speedup = parTestHelper(2_000_000, true, ncores);
@@ -146,7 +146,7 @@ public class ReciprocalArraySumTest extends TestCase {
     /**
      * Test that the many-task parallel implementation properly computes the results for a hundred million-element array.
      */
-    public void _testParManyTaskTwoHundredMillion() {
+    public void testParManyTaskTwoHundredMillion() {
         final int ncores = getNCores();
         final double speedup = parTestHelper(200_000_000, true, ncores);
         final double minimalExpectedSpeedup = (double)ncores * 0.8;

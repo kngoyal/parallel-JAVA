@@ -1,6 +1,9 @@
 package edu.coursera.parallel;
 
 import edu.rice.pcdp.PCDP;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 import java.util.concurrent.atomic.AtomicReference;
@@ -39,8 +42,8 @@ public final class ReciprocalArraySum {
 
         // Combine sum1 and sum2
         double sum = sum1+sum2;
-        long timeinNanos = System.nanoTime() - startTime;
-        printResults("seqArraySum", timeinNanos, sum);
+        long timeInNanos = System.nanoTime() - startTime;
+        printResults("seqArraySum", timeInNanos, sum);
         return sum;
     }
 
@@ -144,7 +147,7 @@ public final class ReciprocalArraySum {
 
         @Override
         protected void compute() {
-            int SEQUENTIAL_THRESHOLD = 100;
+            int SEQUENTIAL_THRESHOLD = 10000;
             if (endIndexExclusive-startIndexInclusive<SEQUENTIAL_THRESHOLD){
                 for (int i=startIndexInclusive; i < endIndexExclusive; i++){
                     value += 1/input[i];
@@ -201,12 +204,10 @@ public final class ReciprocalArraySum {
     protected static double parArraySum(double[] input) {
         assert input.length % 2 == 0;
 //        long startTime = System.nanoTime();
-
         ReciprocalArraySumTask t = new ReciprocalArraySumTask(0, input.length, input);
-        ForkJoinPool pool = new ForkJoinPool(2);
-        pool.invoke(t);
-//        long timeinNanos = System.nanoTime() - startTime;
-//        printResults("parArraySum", timeinNanos, t.getValue());
+        ForkJoinPool.commonPool().invoke(t);
+//        long timeInNanos = System.nanoTime() - startTime;
+//        printResults("parArraySum", timeInNanos, t.getValue());
         return t.getValue();
     }
 
@@ -220,15 +221,18 @@ public final class ReciprocalArraySum {
      * @param numTasks The number of tasks to create
      * @return The sum of the reciprocals of the array input
      */
-    protected static double parManyTaskArraySum(final double[] input,
-            final int numTasks) {
+    protected static double parManyTaskArraySum(final double[] input, final int numTasks) {
         double sum = 0;
+        int nElements = input.length;
 
-        // Compute sum of reciprocals of array elements
-        for (int i = 0; i < input.length; i++) {
-            sum += 1 / input[i];
+        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", String.valueOf(4));
+        for (int chunk=0; chunk<numTasks; chunk++) {
+            int startIndex = getChunkStartInclusive(chunk, numTasks, nElements);
+            int endIndex = getChunkEndExclusive(chunk, numTasks, nElements);
+            ReciprocalArraySumTask t = new ReciprocalArraySumTask(startIndex, endIndex, input);
+            ForkJoinPool.commonPool().invoke(t);
+            sum += t.getValue();
         }
-
         return sum;
     }
 
