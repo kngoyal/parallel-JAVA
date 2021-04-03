@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.coursera.parallel.StudentAnalyticsTest" time="1.504" tests="6" errors="4" skipped="0" failures="0">
+<testsuite name="edu.coursera.parallel.StudentAnalyticsTest" time="1.601" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="16+14"/>
@@ -56,34 +56,10 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="testAverageAgeOfEnrolledStudents" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.209"/>
-  <testcase name="testAverageAgeOfEnrolledStudentsPerf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.205"/>
-  <testcase name="testMostCommonFirstNameOfInactiveStudents" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.231">
-    <error type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
-	at edu.coursera.parallel.StudentAnalytics.mostCommonFirstNameOfInactiveStudentsParallelStream(StudentAnalytics.java:106)
-	at edu.coursera.parallel.StudentAnalyticsTest.mostCommonFirstNameOfInactiveStudentsHelper(StudentAnalyticsTest.java:96)
-	at edu.coursera.parallel.StudentAnalyticsTest.testMostCommonFirstNameOfInactiveStudents(StudentAnalyticsTest.java:112)
-</error>
-  </testcase>
-  <testcase name="testMostCommonFirstNameOfInactiveStudentsPerf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.548">
-    <error type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
-	at edu.coursera.parallel.StudentAnalytics.mostCommonFirstNameOfInactiveStudentsParallelStream(StudentAnalytics.java:106)
-	at edu.coursera.parallel.StudentAnalyticsTest.mostCommonFirstNameOfInactiveStudentsHelper(StudentAnalyticsTest.java:96)
-	at edu.coursera.parallel.StudentAnalyticsTest.testMostCommonFirstNameOfInactiveStudentsPerf(StudentAnalyticsTest.java:120)
-</error>
-  </testcase>
-  <testcase name="testCountNumberOfFailedStudentsOlderThan20" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.117">
-    <error type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
-	at edu.coursera.parallel.StudentAnalytics.countNumberOfFailedStudentsOlderThan20ParallelStream(StudentAnalytics.java:142)
-	at edu.coursera.parallel.StudentAnalyticsTest.countNumberOfFailedStudentsOlderThan20Helper(StudentAnalyticsTest.java:139)
-	at edu.coursera.parallel.StudentAnalyticsTest.testCountNumberOfFailedStudentsOlderThan20(StudentAnalyticsTest.java:155)
-</error>
-  </testcase>
-  <testcase name="testCountNumberOfFailedStudentsOlderThan20Perf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.194">
-    <error type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
-	at edu.coursera.parallel.StudentAnalytics.countNumberOfFailedStudentsOlderThan20ParallelStream(StudentAnalytics.java:142)
-	at edu.coursera.parallel.StudentAnalyticsTest.countNumberOfFailedStudentsOlderThan20Helper(StudentAnalyticsTest.java:139)
-	at edu.coursera.parallel.StudentAnalyticsTest.testCountNumberOfFailedStudentsOlderThan20Perf(StudentAnalyticsTest.java:163)
-</error>
-  </testcase>
+  <testcase name="testAverageAgeOfEnrolledStudents" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.197"/>
+  <testcase name="testAverageAgeOfEnrolledStudentsPerf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.211"/>
+  <testcase name="testMostCommonFirstNameOfInactiveStudents" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.3"/>
+  <testcase name="testMostCommonFirstNameOfInactiveStudentsPerf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.569"/>
+  <testcase name="testCountNumberOfFailedStudentsOlderThan20" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.125"/>
+  <testcase name="testCountNumberOfFailedStudentsOlderThan20Perf" classname="edu.coursera.parallel.StudentAnalyticsTest" time="0.199"/>
 </testsuite>

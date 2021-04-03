@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.HashMap;
+import java.util.Comparator;
 import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 /**
  * A simple wrapper class for various analytics methods.
@@ -48,8 +51,6 @@ public final class StudentAnalytics {
     public double averageAgeOfEnrolledStudentsParallelStream(
             final Student[] studentArray) {
         return Arrays.stream(studentArray).parallel().filter(Student::checkIsCurrent).mapToDouble(Student::getAge).average().getAsDouble();
-//        Double ageSum = Arrays.stream(studentArray).parallel().mapToDouble(Student::getAge).reduce(0.0, Double::sum);
-//        return ageSum/studentArray.length;
     }
 
     /**
@@ -103,7 +104,7 @@ public final class StudentAnalytics {
      */
     public String mostCommonFirstNameOfInactiveStudentsParallelStream(
             final Student[] studentArray) {
-        throw new UnsupportedOperationException();
+        return Arrays.stream(studentArray).parallel().filter(s -> !s.checkIsCurrent()).collect(Collectors.groupingBy(Student::getFirstName, Collectors.counting())).entrySet().stream().max(Comparator.comparing(Entry::getValue)).map(Entry::getKey).get();
     }
 
     /**
@@ -139,6 +140,6 @@ public final class StudentAnalytics {
      */
     public int countNumberOfFailedStudentsOlderThan20ParallelStream(
             final Student[] studentArray) {
-        throw new UnsupportedOperationException();
+        return Arrays.stream(studentArray).parallel().filter(s -> !s.checkIsCurrent() && s.getAge() > 20 && s.getGrade() < 65).mapToInt(s -> 1).sum();
     }
 }
