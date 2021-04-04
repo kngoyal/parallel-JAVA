@@ -163,6 +163,5 @@ public final class OneDimAveragingPhaser {
                 e.printStackTrace();
             }
         }
-
     }
 }

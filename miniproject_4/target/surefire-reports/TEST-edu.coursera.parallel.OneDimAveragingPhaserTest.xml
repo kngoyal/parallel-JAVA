@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.coursera.parallel.OneDimAveragingPhaserTest" time="154.471" tests="1" errors="0" skipped="0" failures="1">
+<testsuite name="edu.coursera.parallel.OneDimAveragingPhaserTest" time="155.96" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="16+14"/>
@@ -56,11 +56,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
-  <testcase name="testFuzzyBarrier" classname="edu.coursera.parallel.OneDimAveragingPhaserTest" time="154.471">
-    <failure message="It was expected that the fuzzy barrier parallel implementation would run 1.050000x faster than the barrier implementation, but it only achieved 1.035986x speedup" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: It was expected that the fuzzy barrier parallel implementation would run 1.050000x faster than the barrier implementation, but it only achieved 1.035986x speedup
-	at junit.framework.Assert.fail(Assert.java:47)
-	at junit.framework.Assert.assertTrue(Assert.java:20)
-	at edu.coursera.parallel.OneDimAveragingPhaserTest.testFuzzyBarrier(OneDimAveragingPhaserTest.java:142)
-</failure>
-  </testcase>
+  <testcase name="testFuzzyBarrier" classname="edu.coursera.parallel.OneDimAveragingPhaserTest" time="155.96"/>
 </testsuite>
